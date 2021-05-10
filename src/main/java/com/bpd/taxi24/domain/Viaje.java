@@ -18,6 +18,16 @@ public class Viaje {
 
     private LocalDate fecha;
 
+    private double latitudeBegin;
+
+    private double longitudeBegind;
+
+    private double latitudeEnd;
+
+    private double longitudeEnd;
+
+    private double distance;
+
     private String estatus = Estatus.PENDIENTE.getCode();
 
     @ManyToOne
@@ -93,5 +103,45 @@ public class Viaje {
 
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
+    }
+
+    public double getLatitudeBegin() {
+        return latitudeBegin;
+    }
+
+    public void setLatitudeBegin(double latitudeBegin) {
+        this.latitudeBegin = latitudeBegin;
+    }
+
+    public double getLongitudeBegind() {
+        return longitudeBegind;
+    }
+
+    public void setLongitudeBegind(double longitudeBegind) {
+        this.longitudeBegind = longitudeBegind;
+    }
+
+    public double getLatitudeEnd() {
+        return latitudeEnd;
+    }
+
+    public void setLatitudeEnd(double latitudeEnd) {
+        this.latitudeEnd = latitudeEnd;
+    }
+
+    public double getLongitudeEnd() {
+        return longitudeEnd;
+    }
+
+    public void setLongitudeEnd(double longitudeEnd) {
+        this.longitudeEnd = longitudeEnd;
+    }
+
+    public double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
     }
 }

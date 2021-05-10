@@ -6,6 +6,8 @@ import com.bpd.taxi24.dto.ConductorDTO;
 import com.bpd.taxi24.repository.ConductorRepository;
 import com.bpd.taxi24.repository.ViajeRepository;
 import com.bpd.taxi24.service.ConductorService;
+import com.bpd.taxi24.utils.UtilsCalculator;
+import com.bpd.taxi24.utils.UtilsCalculator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -74,7 +76,7 @@ public class ConductorServiceImpl implements ConductorService {
             if(conductor.getEstado() == 0)
                 continue;
 
-            double distance = distanceCalculator(conductor.getLatitude(), conductor.getLongitude(), lat2,lon2, "K");
+            double distance = UtilsCalculator.distanceCalculator(conductor.getLatitude(), conductor.getLongitude(), lat2,lon2, "K");
 
             if(distance >= 3){
                 ConductorDTO conductorDTO = new ConductorDTO();
@@ -97,7 +99,7 @@ public class ConductorServiceImpl implements ConductorService {
             if(conductor.getEstado() == 0)
                 continue;
 
-            double distance = distanceCalculator(conductor.getLatitude(), conductor.getLongitude(), lat2,lon2, "K");
+            double distance = UtilsCalculator.distanceCalculator(conductor.getLatitude(), conductor.getLongitude(), lat2,lon2, "K");
 
             if(distance <= 3){
                 ConductorDTO conductorDTO = new ConductorDTO();
@@ -114,22 +116,5 @@ public class ConductorServiceImpl implements ConductorService {
         return conductorDTOList ;
     }
 
-    private  double distanceCalculator(double lat1, double lon1, double lat2, double lon2, String unit) {
-        if ((lat1 == lat2) && (lon1 == lon2)) {
-            return 0;
-        }
-        else {
-            double theta = lon1 - lon2;
-            double dist = Math.sin(Math.toRadians(lat1)) * Math.sin(Math.toRadians(lat2)) + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) * Math.cos(Math.toRadians(theta));
-            dist = Math.acos(dist);
-            dist = Math.toDegrees(dist);
-            dist = dist * 60 * 1.1515;
-            if (unit.equals("K")) {
-                dist = dist * 1.609344;
-            } else if (unit.equals("N")) {
-                dist = dist * 0.8684;
-            }
-            return (dist);
-        }
-    }
+
 }

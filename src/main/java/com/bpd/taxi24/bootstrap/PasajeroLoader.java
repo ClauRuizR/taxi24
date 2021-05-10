@@ -62,6 +62,10 @@ public class PasajeroLoader implements ApplicationListener<ContextRefreshedEvent
         viaje.setNombre("test");
         viaje.setConductor(conductor);
         viaje.setFecha(LocalDate.now());
+        viaje.setLatitudeBegin(19.232131);
+        viaje.setLongitudeBegind(-13.23232);
+        viaje.setLatitudeEnd(19.832131);
+        viaje.setLongitudeEnd(-17.23232);
         viajeRepository.save(viaje);
 
 
