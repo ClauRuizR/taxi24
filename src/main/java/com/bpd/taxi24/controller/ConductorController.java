@@ -20,6 +20,7 @@ public class ConductorController {
     @Autowired
     private ConductorService conductorService;
 
+
     @GetMapping
     public List<Conductor> findAll() {
         return conductorService.findAll();
@@ -41,16 +42,17 @@ public class ConductorController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Long create(@RequestBody Conductor conductor) {
-        return conductorService.save(conductor).getId();
+    public Conductor create(@RequestBody Conductor conductor) {
+        return conductorService.save(conductor);
     }
 
     @PutMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable( "id" ) Long id, @RequestBody Conductor resource) {
+    public Conductor update(@PathVariable( "id" ) Long id, @RequestBody Conductor resource) {
 
-        conductorService.findById(resource.getId());
-        conductorService.update(resource);
+        Conductor conductor=   conductorService.findById(resource.getId()).orElse(null);
+
+        return  conductorService.update(conductor);
     }
 
     @DeleteMapping(value = "/{id}")

@@ -41,18 +41,18 @@ public class ViajeController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Long create(@RequestBody Viaje viaje) {
-        return viajeService.save(viaje).getId();
+    public Viaje create(@RequestBody Viaje viaje) {
+        return viajeService.save(viaje);
     }
 
     @PutMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable( "id" ) Long id, @RequestBody Viaje resource) {
+    public Viaje update(@PathVariable( "id" ) Long id, @RequestBody Viaje resource) {
 
         Viaje viaje = viajeService.findById(resource.getId()).orElse(null);
 
-        if(viaje!=null)
-        viajeService.update(resource);
+
+        return viajeService.update(viaje);
     }
 
     @DeleteMapping(value = "/{id}")

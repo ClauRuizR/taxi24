@@ -3,6 +3,7 @@ package com.bpd.taxi24.domain;
 import com.bpd.taxi24.enums.Estatus;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name="viaje")
@@ -14,6 +15,8 @@ public class Viaje {
     private String nombre;
 
     private Integer estado = 1;
+
+    private LocalDate fecha;
 
     private String estatus = Estatus.PENDIENTE.getCode();
 
@@ -82,5 +85,13 @@ public class Viaje {
 
     public void setVersion(Long version) {
         this.version = version;
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
     }
 }

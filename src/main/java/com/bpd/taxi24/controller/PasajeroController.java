@@ -43,16 +43,16 @@ public class PasajeroController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Long create(@RequestBody Pasajero pasajero) {
-      return pasajeroService.save(pasajero).getId();
+    public Pasajero create(@RequestBody Pasajero pasajero) {
+      return pasajeroService.save(pasajero);
     }
 
     @PutMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable( "id" ) Long id, @RequestBody Pasajero resource) {
+    public Pasajero update(@PathVariable( "id" ) Long id, @RequestBody Pasajero resource) {
 
        pasajeroService.findById(resource.getId());
-        pasajeroService.update(resource);
+      return  pasajeroService.update(resource);
     }
 
     @DeleteMapping(value = "/{id}")

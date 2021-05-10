@@ -1,6 +1,5 @@
 package com.bpd.taxi24.service.impl;
 
-import com.bpd.taxi24.common.DistanceCalculator;
 import com.bpd.taxi24.domain.Conductor;
 import com.bpd.taxi24.domain.Pasajero;
 import com.bpd.taxi24.dto.ConductorDTO;
