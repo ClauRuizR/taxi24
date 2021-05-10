@@ -10,6 +10,7 @@ import com.bpd.taxi24.service.PasajeroService;
 import com.bpd.taxi24.service.ViajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,8 +28,15 @@ public class ViajeController {
     }
 
     @GetMapping(value = "/{id}")
-    public Optional<Viaje> findById(@PathVariable("id") Long id) {
-        return viajeService.findById(id);
+    public ResponseEntity<Viaje> findById(@PathVariable("id") Long id) {
+
+        Viaje viaje =  viajeService.findById(id).orElse(null);
+
+        if(viaje== null){
+            return  new ResponseEntity<>(viaje, HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(viaje , HttpStatus.OK);
     }
 
     @PostMapping
@@ -41,7 +49,9 @@ public class ViajeController {
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable( "id" ) Long id, @RequestBody Viaje resource) {
 
-        viajeService.findById(resource.getId());
+        Viaje viaje = viajeService.findById(resource.getId()).orElse(null);
+
+        if(viaje!=null)
         viajeService.update(resource);
     }
 

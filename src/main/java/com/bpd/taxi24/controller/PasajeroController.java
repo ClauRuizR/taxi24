@@ -7,6 +7,7 @@ import com.bpd.taxi24.service.ConductorService;
 import com.bpd.taxi24.service.PasajeroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,8 +29,16 @@ public class PasajeroController {
     }
 
     @GetMapping(value = "/{id}")
-    public Optional<Pasajero> findById(@PathVariable("id") Long id) {
-        return pasajeroService.findById(id);
+    public ResponseEntity<Pasajero> findById(@PathVariable("id") Long id) {
+
+        Pasajero pasajero =  pasajeroService.findById(id).orElse(null);
+
+        if(pasajero== null){
+            return  new ResponseEntity<>(pasajero, HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(pasajero , HttpStatus.OK);
+
     }
 
     @PostMapping

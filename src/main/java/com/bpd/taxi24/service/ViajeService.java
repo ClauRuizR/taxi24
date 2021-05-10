@@ -1,6 +1,5 @@
 package com.bpd.taxi24.service;
 
-import com.bpd.taxi24.domain.Pasajero;
 import com.bpd.taxi24.domain.Viaje;
 import com.bpd.taxi24.dto.ViajeDTO;
 
