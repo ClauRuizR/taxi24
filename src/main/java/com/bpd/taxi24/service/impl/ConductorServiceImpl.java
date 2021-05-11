@@ -82,6 +82,7 @@ public class ConductorServiceImpl implements ConductorService {
                 ConductorDTO conductorDTO = new ConductorDTO();
                 conductorDTO.setId(conductor.getId());
                 conductorDTO.setLatitude(conductor.getLatitude());
+                conductorDTO.setNombre(conductor.getNombre());
                 conductorDTO.setLongitude(conductor.getLongitude());
 
                 conductorDTOList.add(conductorDTO);
@@ -104,6 +105,7 @@ public class ConductorServiceImpl implements ConductorService {
             if(distance <= 3){
                 ConductorDTO conductorDTO = new ConductorDTO();
                 conductorDTO.setId(conductor.getId());
+                conductorDTO.setNombre(conductor.getNombre());
                 conductorDTO.setLatitude(conductor.getLatitude());
                 conductorDTO.setLongitude(conductor.getLongitude());
 

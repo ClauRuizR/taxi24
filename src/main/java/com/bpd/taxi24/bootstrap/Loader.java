@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 
 @Component
-public class PasajeroLoader implements ApplicationListener<ContextRefreshedEvent> {
+public class Loader implements ApplicationListener<ContextRefreshedEvent> {
 
     @Autowired
     private PasajeroRepository pasajeroRepository;
@@ -41,20 +41,27 @@ public class PasajeroLoader implements ApplicationListener<ContextRefreshedEvent
 
         Conductor conductor = new Conductor();
         conductor.setNombre("Julian Rosario");
-        conductor.setLatitude(19.232131);
-        conductor.setLongitude(-13.23232);
+        conductor.setLatitude(18.48022);
+        conductor.setLongitude(-69.86313);
         conductorRepository.save(conductor);
 
         Conductor conductor2 = new Conductor();
         conductor2.setNombre("Emma Ruiz");
-        conductor2.setLatitude(19.232131);
-        conductor2.setLongitude(-13.23232);
+        conductor2.setLatitude(18.48013);
+        conductor2.setLongitude(-69.86403);
         conductorRepository.save(conductor2);
 
         Conductor conductor3 = new Conductor();
         conductor3.setNombre("David Ruiz");
-        conductor3.setLatitude(19.232131);
-        conductor3.setLongitude(-13.23232);
+        conductor3.setLatitude(18.45146);
+        conductor3.setLongitude(-69.93886);
+        conductorRepository.save(conductor3);
+
+
+        Conductor conductor4 = new Conductor();
+        conductor4.setNombre("Sebastian Mota");
+        conductor4.setLatitude(18.47513);
+        conductor4.setLongitude(-69.88824);
         conductorRepository.save(conductor3);
 
         Viaje viaje = new Viaje();
@@ -62,10 +69,10 @@ public class PasajeroLoader implements ApplicationListener<ContextRefreshedEvent
         viaje.setNombre("test");
         viaje.setConductor(conductor);
         viaje.setFecha(LocalDate.now());
-        viaje.setLatitudeBegin(19.232131);
-        viaje.setLongitudeBegind(-13.23232);
-        viaje.setLatitudeEnd(19.832131);
-        viaje.setLongitudeEnd(-17.23232);
+        viaje.setLatitudeBegin(18.48022);
+        viaje.setLongitudeBegind(-69.86313);
+        viaje.setLatitudeEnd(18.47101);
+        viaje.setLongitudeEnd(-69.88534);
         viajeRepository.save(viaje);
 
 
