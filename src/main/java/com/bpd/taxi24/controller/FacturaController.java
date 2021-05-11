@@ -18,7 +18,7 @@ public class FacturaController {
     @Autowired
     private FacturaService facturaService;
 
-    @GetMapping(value = "/getFacturaByPasajero/{id}")
+    @GetMapping(value = "/obtenerFacturaPorPasajero/{id}")
     public ResponseEntity<Factura> findById(@PathVariable("id") Long id) {
 
         Factura factura =  facturaService.findByPasajeroId(id);

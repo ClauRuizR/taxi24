@@ -62,11 +62,12 @@ public class ConductorController {
     }
 
 
-    @GetMapping("/getConductorDisponibles")
-    public List<Conductor> getConductorDisponibles(){
+    @GetMapping("/conductoresDisponibles")
+    public List<Conductor> getConductoresDisponibles(){
         return conductorService.getConductorDisponibles();
     }
-    @GetMapping(value="/getAllConductorByDistance/{lat2}/{lon2}")
+
+    @GetMapping(value="/conductoresPorDistancia/{lat2}/{lon2}")
     public List<ConductorDTO> getAllConductorByDistance(@PathVariable("lat2") double lat2, @PathVariable("lat2") double lon2 ){
         return conductorService.getAllConductorByDistance(lat2,lon2);
 
