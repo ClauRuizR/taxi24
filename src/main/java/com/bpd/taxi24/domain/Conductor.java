@@ -1,6 +1,8 @@
 package com.bpd.taxi24.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @NamedNativeQuery(name = "Conductor.findAllConductorDisponible",
@@ -12,7 +14,8 @@ public class Conductor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    @NotBlank(message = "El Nombre no puede ser nulo.")
+    @Size(max=50)
     private String nombre;
 
     private double latitude;

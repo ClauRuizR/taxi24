@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,7 +43,7 @@ public class ConductorController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Conductor create(@RequestBody Conductor conductor) {
+    public Conductor create(@Valid @RequestBody Conductor conductor) {
         return conductorService.save(conductor);
     }
 

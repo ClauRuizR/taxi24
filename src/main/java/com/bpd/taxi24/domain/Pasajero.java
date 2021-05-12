@@ -1,6 +1,7 @@
 package com.bpd.taxi24.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="pasajero")
@@ -8,7 +9,7 @@ public class Pasajero {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    @NotBlank
     private String nombre;
 
     private Integer estado = 1;

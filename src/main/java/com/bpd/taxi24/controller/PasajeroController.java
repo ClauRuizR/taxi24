@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,7 +44,7 @@ public class PasajeroController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Pasajero create(@RequestBody Pasajero pasajero) {
+    public Pasajero create(@Valid @RequestBody Pasajero pasajero) {
       return pasajeroService.save(pasajero);
     }
 

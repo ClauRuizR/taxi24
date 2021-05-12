@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,7 +42,7 @@ public class ViajeController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Viaje create(@RequestBody Viaje viaje) {
+    public Viaje create(@Valid @RequestBody Viaje viaje) {
         return viajeService.save(viaje);
     }
 

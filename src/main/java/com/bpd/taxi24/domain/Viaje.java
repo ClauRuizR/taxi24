@@ -3,6 +3,7 @@ package com.bpd.taxi24.domain;
 import com.bpd.taxi24.enums.Estatus;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
 @Entity
@@ -11,7 +12,7 @@ public class Viaje {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    @NotBlank
     private String nombre;
 
     private Integer estado = 1;
