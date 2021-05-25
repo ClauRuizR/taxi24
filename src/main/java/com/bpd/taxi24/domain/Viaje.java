@@ -15,9 +15,11 @@ public class Viaje {
     @NotBlank
     private String nombre;
 
+    private String placa;
+
     private Integer estado = 1;
 
-    private LocalDate fecha;
+    private LocalDate fecha = LocalDate.now();
 
     private double latitudeBegin;
 
@@ -144,5 +146,13 @@ public class Viaje {
 
     public void setDistance(double distance) {
         this.distance = distance;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
 }
